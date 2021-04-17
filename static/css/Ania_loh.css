@@ -1,0 +1,24 @@
+body{
+    background-image: url(../img/kavkaz.jpg);
+    color: #FFFFFF;
+}
+
+a.nav-link{
+    color: #FFFFFF;
+}
+
+a.dropdown-menu{
+    color: #FFFFFF;
+}
+
+a.btn-secondary{
+    min-width: 170px;
+    min-height: 50px;
+    font: bold 20px "Calibri Light";
+}
+
+a.search:hover{
+    color: white;
+
+}
+
