@@ -52,7 +52,8 @@
                 {% endif %}
                 <ul></ul>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" style="color: #FFFFFF" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle" href="#" style="color: #FFFFFF" id="navbarDropdown"
+                       role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Жанр
                     </a>
@@ -114,18 +115,22 @@
     </div>
 </nav>
 </ul>
-<a type="button" href="//"><img src="../static/img/kak_tuz1.png"></a>
-<br>
-<a type="button" href="#"><img src="../static/img/kak_tuz2.png"></a>
-<br>
-<a type="button" href="#"><img src="../static/img/kak_tuz3.png"></a>
-<br>
-<a type="button" href="/logout"><img src="../static/img/kak_tuz4.png"></a>
-<br>
 
-<main role="main" class="container">
-    {% block content %}{% endblock %}
-</main>
-
+<div class="glavnaya">
+    <div class="kaktus">
+        <a type="button" href="//"><img src="../static/img/kak_tuz1.png"></a>
+        <br>
+        <a type="button" href="#"><img src="../static/img/kak_tuz2.png"></a>
+        <br>
+        <a type="button" href="#"><img src="../static/img/kak_tuz3.png"></a>
+        <br>
+        <a type="button" href="/logout"><img src="../static/img/kak_tuz4.png"></a>
+    </div>
+    <div class="content">
+        <main role="main" class="container">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</div>
 </body>
 </html>

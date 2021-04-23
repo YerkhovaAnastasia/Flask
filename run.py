@@ -1,8 +1,10 @@
 from flask import Flask, render_template, redirect
-from flask_login import login_user, LoginManager, login_required, logout_user
+from flask_login import login_user, LoginManager, login_required, logout_user, current_user
 from forms.login import LoginForm
 from data.user import User
+from data.book import Book
 from forms.register import RegisterForm
+from forms.filtr import Add_book
 from data import db_session
 
 app = Flask(__name__)
@@ -20,7 +22,45 @@ def load_user(user_id):
 @app.route('/')
 @app.route('/index')
 def ff():
-    return render_template('base.html', title='Заготовка')
+    if current_user.is_authenticated:
+        return redirect('/user_page')
+    return render_template('index.html', title='RePe')
+
+
+@app.route('/user_page')
+def user_page():
+    return render_template('user_page.html', title='RePe')
+
+
+@app.route('/filtr')
+def filtr():
+    return render_template('filtr.html', title='RePe')
+
+
+@app.route('/add_book', methods=['GET', 'POST'])
+def add_book():
+    form = Add_book()
+    db_sess = db_session.create_session()
+    if form.validate_on_submit():
+        if db_sess.query(Book).filter(Book.name == form.name.data).first():
+            return render_template('filtr.html',
+                                   form=form,
+                                   message="Такая книга уже записана")
+        book = Book(
+            name=form.name.data,
+            email=form.email.data,
+
+            # au_attitude=form.au_attitude.data,
+            # frog_attitude=form.frog_attitude.data,
+            # cvc_code=form.cvc_code.data,
+            # modified_date=dt.date.today()
+        )
+        book.set_password(form.password.data)
+        db_sess.add(book)
+        db_sess.commit()
+        login_user(book, remember=True)
+        return redirect('/')
+    return render_template('registr.html', form=form)
 
 
 @app.route('/registratsia', methods=['GET', 'POST'])

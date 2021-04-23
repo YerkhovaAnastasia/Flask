@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<h1>Добавление книги в библиотеку</h1>
+<br>
+
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(class="form-control") }}<br>
+        {% for error in form.name.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+<p>
+        {{ form.email.label }}<br>
+        {{ form.email(class="form-control", type="autor") }}<br>
+        {% for error in form.autor.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(class="form-control", type="name") }}<br>
+        {% for error in form.name.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>1
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.gener.label }}<br>
+        {{ form.gener(class="form-control", type="gener") }}<br>
+        {% for error in form.gener.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.age.label }}<br>
+        {{ form.age(class="form-control", type="age") }}<br>
+        {% for error in form.age.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.kr_soder.label }}<br>
+        {{ form.kr_soder(class="form-control", type="kr_soder") }}<br>
+        {% for error in form.kr_soder.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.my_reit.label }}<br>
+        {{ form.my_reit(class="form-control", type="my_reit") }}<br>
+        {% for error in form.my_reit.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+{% endblock %}

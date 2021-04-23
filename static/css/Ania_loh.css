@@ -21,7 +21,37 @@ a.search:hover{
     color: white;
 
 }
+
 a.btn-login,a.btn-reg{
     background-color: seagreen;
 }
+
+.glavnaya{
+    display: flex;
+    justify-content: stretch;
+}
+
+.content{
+    margin-left: 150px;
+    min-width: 50%;
+}
+
+.book_blocks{
+    display: flex;
+    justify-content: space-around;
+}
+
+.card{
+    background-color: transparent;
+}
+
+.book_blocks{
+    background-image: url(../img/svechka.png);
+    margin-right: 550px;
+    background-position: center;
+    min-width: 1050px;
+    padding: 100px;
+    background-repeat: no-repeat;
+}
+
 
