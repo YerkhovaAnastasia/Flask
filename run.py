@@ -4,7 +4,7 @@ from forms.login import LoginForm
 from data.user import User
 from data.book import Book
 from forms.register import RegisterForm
-from forms.filtr import Add_book
+from forms.filtr import AddBook
 from data import db_session
 
 app = Flask(__name__)
@@ -39,7 +39,7 @@ def filtr():
 
 @app.route('/add_book', methods=['GET', 'POST'])
 def add_book():
-    form = Add_book()
+    form = AddBook()
     db_sess = db_session.create_session()
     if form.validate_on_submit():
         if db_sess.query(Book).filter(Book.name == form.name.data).first():
@@ -47,20 +47,22 @@ def add_book():
                                    form=form,
                                    message="Такая книга уже записана")
         book = Book(
+            autor=form.autor.data,
             name=form.name.data,
-            email=form.email.data,
+            gener=form.gener.data,
+            age=form.age.data,
+            kr_sod=form.kr_sod.data,
+            my_reit=form.my_reit.data
 
             # au_attitude=form.au_attitude.data,
             # frog_attitude=form.frog_attitude.data,
             # cvc_code=form.cvc_code.data,
             # modified_date=dt.date.today()
         )
-        book.set_password(form.password.data)
         db_sess.add(book)
         db_sess.commit()
-        login_user(book, remember=True)
         return redirect('/')
-    return render_template('registr.html', form=form)
+    return render_template('filtr.html', form=form)
 
 
 @app.route('/registratsia', methods=['GET', 'POST'])

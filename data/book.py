@@ -15,7 +15,7 @@ class Book(SqlAlchemyBase, UserMixin, SerializerMixin):
                                 primary_key=True, autoincrement=True)
     autor = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     name = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    genre = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    gener = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     age = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
     filtrs = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     kr_sod = sqlalchemy.Column(sqlalchemy.String, nullable=True)

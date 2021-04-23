@@ -4,11 +4,11 @@ from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired
 
 
-class Add_book(FlaskForm):
+class AddBook(FlaskForm):
     autor = StringField('Автор', validators=[DataRequired()])
     name = StringField('Название книги', validators=[DataRequired()])
     gener = StringField('Жанр', validators=[DataRequired()])
     age = IntegerField('Год издания', validators=[DataRequired()])
-    kr_soder = TextAreaField("Почему вы считаете себя не роботом?")
+    kr_sod = TextAreaField("Краткое содержание")
     my_reit = IntegerField('Мой рейтинг', validators=[DataRequired()])
     submit = SubmitField('Добавить книгу')

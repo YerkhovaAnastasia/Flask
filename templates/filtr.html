@@ -17,8 +17,8 @@
         {% endfor %}
     </p>
 <p>
-        {{ form.email.label }}<br>
-        {{ form.email(class="form-control", type="autor") }}<br>
+        {{ form.autor.label }}<br>
+        {{ form.autor(class="form-control") }}<br>
         {% for error in form.autor.errors %}
             <p class="alert alert-danger" role="alert">
                 {{ error }}
@@ -26,17 +26,8 @@
         {% endfor %}
     </p>
     <p>
-        {{ form.name.label }}<br>
-        {{ form.name(class="form-control", type="name") }}<br>
-        {% for error in form.name.errors %}
-            <p class="alert alert-danger" role="alert">
-                {{ error }}
-            </p>1
-        {% endfor %}
-    </p>
-    <p>
         {{ form.gener.label }}<br>
-        {{ form.gener(class="form-control", type="gener") }}<br>
+        {{ form.gener(class="form-control") }}<br>
         {% for error in form.gener.errors %}
             <p class="alert alert-danger" role="alert">
                 {{ error }}
@@ -45,7 +36,7 @@
     </p>
     <p>
         {{ form.age.label }}<br>
-        {{ form.age(class="form-control", type="age") }}<br>
+        {{ form.age(class="form-control") }}<br>
         {% for error in form.age.errors %}
             <p class="alert alert-danger" role="alert">
                 {{ error }}
@@ -53,9 +44,9 @@
         {% endfor %}
     </p>
     <p>
-        {{ form.kr_soder.label }}<br>
-        {{ form.kr_soder(class="form-control", type="kr_soder") }}<br>
-        {% for error in form.kr_soder.errors %}
+        {{ form.kr_sod.label }}<br>
+        {{ form.kr_sod(class="form-control") }}<br>
+        {% for error in form.kr_sod.errors %}
             <p class="alert alert-danger" role="alert">
                 {{ error }}
             </p>
@@ -63,7 +54,7 @@
     </p>
     <p>
         {{ form.my_reit.label }}<br>
-        {{ form.my_reit(class="form-control", type="my_reit") }}<br>
+        {{ form.my_reit(class="form-control") }}<br>
         {% for error in form.my_reit.errors %}
             <p class="alert alert-danger" role="alert">
                 {{ error }}
