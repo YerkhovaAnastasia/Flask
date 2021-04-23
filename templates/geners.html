@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for i in books %}
+<p>Название книги:{{i.name}}    Автор:{{i.autor}}   Год написания:{{i.age}}    Краткое содержание:{{i.kr_sod}}    Мой рейтинг(0-не знаю):{{i.my_reit}} .</p>
+{% endfor %}
+{% endblock %}

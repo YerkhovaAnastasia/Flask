@@ -32,14 +32,25 @@ def user_page():
     return render_template('user_page.html', title='RePe')
 
 
-@app.route('/filtr')
-def filtr():
-    return render_template('filtr.html', title='RePe')
+@app.route('/razr')
+def razr():
+    return render_template('razrabotka.html', title='RePe')
+
+
+@app.route('/filtr/<genre>')
+def filtr(genre):
+    db_sess = db_session.create_session()
+    books = db_sess.query(Book).filter(Book.gener == genre).all()
+    return render_template('geners.html', title='RePe', books=books)
 
 
 @app.route('/add_book', methods=['GET', 'POST'])
 def add_book():
     form = AddBook()
+    if form.gener.data not in ['Поэзия', 'Классика', 'Детектив', 'Боевик', 'Комедия', 'Ужастик', 'Фентези']:
+        return render_template('filtr.html',
+                               form=form,
+                               message="Убедительная просьба выбрать жанр из нижеперечисленных: Поэзия,Классика,Детектив,Боевик,Комедия,Ужастик,Фентези")
     db_sess = db_session.create_session()
     if form.validate_on_submit():
         if db_sess.query(Book).filter(Book.name == form.name.data).first():
