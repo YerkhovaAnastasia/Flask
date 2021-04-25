@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template, redirect
 from flask_login import login_user, LoginManager, login_required, logout_user, current_user
 from forms.login import LoginForm
@@ -130,7 +132,8 @@ def logout():
 
 def main():
     db_session.global_init("db/user.db")
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
 
 
 if __name__ == '__main__':
